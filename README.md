@@ -27,5 +27,20 @@ Fungsi-fungsi utama:
 fitur dan spesifikasi
 1. Kontroller Ultrasonik : Mendapatkan kalkulasi jarak yang terdeteksi dari ultrasonik.
 2. Quantizer	: Mengubah jarak yang terdeteksi dari ultrasonik menjadi tipe data 8 bit integer.
-3. MAC	: Mengontrol lift 4 lantai 
+3. MAC	: Mengontrol lift 4 lantai
+4. full connected layer : melakukan kalkulasi sederhana
 
+spesifikasi
+Contoh spesifikasi:
+1. Bilangan memiliki lebar 32-bit
+2. Vending machine dapat memberi kembalian
+3. Lift dapat naik dan turun
+4. Kalkulator menerima sampai 4 input
+
+cara penggunaan
+untuk cara penggunakan kami menggunakan flowchart, flowchart tertera pada link gdrive
+https://drive.google.com/file/d/14UwgRuymiXlEy53I3IPn9DWjuvfpb_C4/view?usp=sharing
+
+
+
+blok diagram
