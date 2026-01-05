@@ -314,6 +314,7 @@ Lampiran (kode verilog)
 
 
 
+
 link video implementasi
 https://drive.google.com/file/d/1qvzWCa3wwLiYrUb09nVLZsgdOJ7CDhSX/view?usp=sharing
 
