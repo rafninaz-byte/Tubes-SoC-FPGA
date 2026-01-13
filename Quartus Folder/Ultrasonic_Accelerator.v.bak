@@ -1,0 +1,98 @@
+module Ultrasonic_Accelerator #(
+    parameter DATA_WIDTH = 8,
+    parameter ACC_WIDTH = 32
+)(
+    input wire clk,
+    input wire reset_n,
+    input wire start,
+    
+    // 4 Ultrasonic sensor inputs (distance in cm)
+    input wire [DATA_WIDTH-1:0] sensor0,  // Front (0-255 cm)
+    input wire [DATA_WIDTH-1:0] sensor1,  // Left
+    input wire [DATA_WIDTH-1:0] sensor2,  // Right
+    input wire [DATA_WIDTH-1:0] sensor3,  // Rear
+    
+    // Classification output
+    output reg [2:0] classification,  // 001=Safe, 010=Warning, 100=Danger
+    output reg valid,
+    output wire ready
+);
+
+// ============================================
+// Internal Signals
+// ============================================
+wire signed [ACC_WIDTH-1:0] neuron_outputs [0:2];
+wire mac_done;
+wire signed [DATA_WIDTH-1:0] norm_inputs [0:3];
+reg [DATA_WIDTH-1:0] input_buffer [0:3];
+
+// ============================================
+// Input Normalization
+// ============================================
+// Convert distance to danger score (shorter distance = higher danger)
+// Example: distance 10cm = 245, distance 255cm = 0
+always @(*) begin
+    input_buffer[0] = 255 - sensor0;  // Invert: short distance → high value
+    input_buffer[1] = 255 - sensor1;
+    input_buffer[2] = 255 - sensor2;
+    input_buffer[3] = 255 - sensor3;
+end
+
+// ============================================
+// MAC Array Instance
+// ============================================
+MAC_Array u_mac_array (
+    .clk(clk),
+    .reset_n(reset_n),
+    .start(start),
+    .inputs(input_buffer),
+    .neuron_outputs(neuron_outputs),
+    .done(mac_done)
+);
+
+// ============================================
+// Activation & Classification
+// ============================================
+always @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+        classification <= 3'b001;  // Default to Safe
+        valid <= 0;
+    end else if (mac_done) begin
+        // Find max output (argmax)
+        if (neuron_outputs[0] >= neuron_outputs[1] && 
+            neuron_outputs[0] >= neuron_outputs[2]) begin
+            classification <= 3'b001;  // Safe
+        end else if (neuron_outputs[1] >= neuron_outputs[0] && 
+                   neuron_outputs[1] >= neuron_outputs[2]) begin
+            classification <= 3'b010;  // Warning
+        end else begin
+            classification <= 3'b100;  // Danger
+        end
+        valid <= 1;
+    end else begin
+        valid <= 0;
+    end
+end
+
+// Ready signal (not busy)
+reg busy;
+always @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+        busy <= 0;
+    end else if (start) begin
+        busy <= 1;
+    end else if (mac_done) begin
+        busy <= 0;
+    end
+end
+
+assign ready = !busy;
+
+// ============================================
+// Debug Outputs (optional)
+// ============================================
+wire [DATA_WIDTH-1:0] debug_neuron0_out = neuron_outputs[0][DATA_WIDTH-1:0];
+wire [DATA_WIDTH-1:0] debug_neuron1_out = neuron_outputs[1][DATA_WIDTH-1:0];
+wire [DATA_WIDTH-1:0] debug_neuron2_out = neuron_outputs[2][DATA_WIDTH-1:0];
+
+endmodule

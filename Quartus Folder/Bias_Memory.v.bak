@@ -1,0 +1,43 @@
+module Bias_Memory #(
+    parameter NUM_NEURONS = 3,
+    parameter DATA_WIDTH = 8,
+    parameter BIAS_FILE = "biases.mem"  // Pre-trained biases
+)(
+    input wire clk,
+    input wire reset_n,
+    input wire [1:0] neuron_addr,    // 0-2: Which neuron
+    output reg signed [DATA_WIDTH-1:0] bias_out
+);
+
+// ============================================
+// Pre-trained Bias Storage
+// ============================================
+reg signed [DATA_WIDTH-1:0] biases [0:NUM_NEURONS-1];
+
+// Example biases from training
+initial begin
+    // Neuron 0 (Safe): Positive bias means tend toward safe
+    biases[0] = 8'h30;  // Higher bias for safe
+    
+    // Neuron 1 (Warning): Medium bias
+    biases[1] = 8'h10;  
+    
+    // Neuron 2 (Danger): Negative bias means avoid danger classification
+    biases[2] = 8'hE0;  // Negative bias (0xE0 = -32 in two's complement)
+end
+
+// Alternative: Load from file
+// initial $readmemh(BIAS_FILE, biases);
+
+// ============================================
+// Read Logic
+// ============================================
+always @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+        bias_out <= 0;
+    end else begin
+        bias_out <= biases[neuron_addr];
+    end
+end
+
+endmodule

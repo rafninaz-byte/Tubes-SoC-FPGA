@@ -1,0 +1,144 @@
+# Reading pref.tcl
+# do NNA_TOP_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/MAC.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:18 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/MAC.v 
+# -- Compiling module MAC
+# 
+# Top level modules:
+# 	MAC
+# End time: 14:54:18 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Weight_Memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:18 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Weight_Memory.v 
+# -- Compiling module Weight_Memory
+# 
+# Top level modules:
+# 	Weight_Memory
+# End time: 14:54:18 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Bias_Memory.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:18 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Bias_Memory.v 
+# -- Compiling module Bias_Memory
+# 
+# Top level modules:
+# 	Bias_Memory
+# End time: 14:54:19 on Jan 05,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:19 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v 
+# -- Compiling module Ultrasonic_Accelerator
+# 
+# Top level modules:
+# 	Ultrasonic_Accelerator
+# End time: 14:54:19 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/NNA_TOP.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:19 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/NNA_TOP.v 
+# -- Compiling module NNA_TOP
+# 
+# Top level modules:
+# 	NNA_TOP
+# End time: 14:54:19 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/MAC_Controller.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:19 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/MAC_Controller.v 
+# -- Compiling module MAC_Controller
+# 
+# Top level modules:
+# 	MAC_Controller
+# End time: 14:54:20 on Jan 05,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Argmax3.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:20 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Argmax3.v 
+# -- Compiling module Argmax3
+# 
+# Top level modules:
+# 	Argmax3
+# End time: 14:54:20 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:20 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v 
+# -- Compiling module Distance_To_INT8
+# 
+# Top level modules:
+# 	Distance_To_INT8
+# End time: 14:54:20 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:20 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v 
+# -- Compiling module SYSTEM_TOP
+# 
+# Top level modules:
+# 	SYSTEM_TOP
+# End time: 14:54:20 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:21 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v 
+# -- Compiling module Distance_Change_Detector
+# 
+# Top level modules:
+# 	Distance_Change_Detector
+# End time: 14:54:21 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/tb_nna.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:54:21 on Jan 05,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Quartus_Testing/NN_Accel" C:/Quartus_Testing/NN_Accel/tb_nna.v 
+# -- Compiling module tb_nna
+# 
+# Top level modules:
+# 	tb_nna
+# End time: 14:54:21 on Jan 05,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_nna
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_nna 
+# Start time: 14:54:21 on Jan 05,2026
+# Loading work.tb_nna
+# Loading work.NNA_TOP
+# Loading work.Weight_Memory
+# Loading work.Bias_Memory
+# Loading work.MAC_Controller
+# Loading work.MAC
+# Loading work.Argmax3
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $stop    : C:/Quartus_Testing/NN_Accel/tb_nna.v(119)
+#    Time: 2010 ps  Iteration: 0  Instance: /tb_nna
+# Break in Module tb_nna at C:/Quartus_Testing/NN_Accel/tb_nna.v line 119

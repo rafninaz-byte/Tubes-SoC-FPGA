@@ -1,0 +1,19 @@
+module MAC (
+	input wire [7:0] x,
+	input wire [7:0] w,
+	
+	input wire clk,
+	input wire clear,
+	
+	output reg [31:0] acc
+);
+
+always @(posedge clk) begin
+    if (clear)
+        acc <= 0;
+    else
+        acc <= acc + x * w;
+end
+
+
+endmodule

@@ -1,0 +1,16 @@
+
+State Machine - |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL|state
+Name state.DONE_HOLD state.FINISH state.NEXT_OUT state.NEXT_IN state.MAC_OP state.IDLE 
+state.IDLE 0 0 0 0 0 0 
+state.MAC_OP 0 0 0 0 1 1 
+state.NEXT_IN 0 0 0 1 0 1 
+state.NEXT_OUT 0 0 1 0 0 1 
+state.FINISH 0 1 0 0 0 1 
+state.DONE_HOLD 1 0 0 0 0 1 
+
+State Machine - |SYSTEM_TOP|Ultrasonic_Accelerator:US|fsm_state
+Name fsm_state.state_bit_1 fsm_state.state_bit_0 
+fsm_state.IDLE 0 0 
+fsm_state.TRIG_S 0 1 
+fsm_state.WAIT_E 1 0 
+fsm_state.NEXT 1 1 

@@ -1,0 +1,717 @@
+Analysis & Synthesis report for NNA_TOP
+Mon Jan 05 14:58:00 2026
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL|state
+ 10. State Machine - |SYSTEM_TOP|Ultrasonic_Accelerator:US|fsm_state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for Ultrasonic_Accelerator:US
+ 16. Parameter Settings for User Entity Instance: Ultrasonic_Accelerator:US
+ 17. Parameter Settings for User Entity Instance: Distance_Change_Detector:START_GEN
+ 18. Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div0
+ 19. Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div2
+ 20. Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div1
+ 21. Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div3
+ 22. Port Connectivity Checks: "NNA_TOP:NN"
+ 23. Post-Synthesis Netlist Statistics for Top Partition
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Jan 05 14:58:00 2026       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; NNA_TOP                                     ;
+; Top-level Entity Name           ; SYSTEM_TOP                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 459                                         ;
+; Total pins                      ; 13                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 1                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEBA6U23I7       ;                    ;
+; Top-level entity name                                                           ; SYSTEM_TOP         ; NNA_TOP            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; MAC.v                            ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/MAC.v                                          ;         ;
+; Weight_Memory.v                  ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Weight_Memory.v                                ;         ;
+; Bias_Memory.v                    ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Bias_Memory.v                                  ;         ;
+; Ultrasonic_Accelerator.v         ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v                       ;         ;
+; NNA_TOP.v                        ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/NNA_TOP.v                                      ;         ;
+; MAC_Controller.v                 ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/MAC_Controller.v                               ;         ;
+; Argmax3.v                        ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Argmax3.v                                      ;         ;
+; Distance_To_INT8.v               ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v                             ;         ;
+; SYSTEM_TOP.v                     ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v                                   ;         ;
+; Distance_Change_Detector.v       ; yes             ; User Verilog HDL File        ; C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v                     ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc      ;         ;
+; db/lpm_divide_0dm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Quartus_Testing/NN_Accel/db/lpm_divide_0dm.tdf                          ;         ;
+; db/sign_div_unsign_6nh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Quartus_Testing/NN_Accel/db/sign_div_unsign_6nh.tdf                     ;         ;
+; db/alt_u_div_i2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Quartus_Testing/NN_Accel/db/alt_u_div_i2f.tdf                           ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 968       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1796      ;
+;     -- 7 input functions                    ; 7         ;
+;     -- 6 input functions                    ; 48        ;
+;     -- 5 input functions                    ; 95        ;
+;     -- 4 input functions                    ; 360       ;
+;     -- <=3 input functions                  ; 1286      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 459       ;
+;                                             ;           ;
+; I/O pins                                    ; 13        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 1         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 459       ;
+; Total fan-out                               ; 7363      ;
+; Average fan-out                             ; 3.23      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                   ; Entity Name              ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; |SYSTEM_TOP                               ; 1796 (0)            ; 459 (0)                   ; 0                 ; 1          ; 13   ; 0            ; |SYSTEM_TOP                                                                                                                           ; SYSTEM_TOP               ; work         ;
+;    |Distance_Change_Detector:START_GEN|   ; 185 (185)           ; 45 (45)                   ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Distance_Change_Detector:START_GEN                                                                                        ; Distance_Change_Detector ; work         ;
+;    |Distance_To_INT8:S0|                  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Distance_To_INT8:S0                                                                                                       ; Distance_To_INT8         ; work         ;
+;    |Distance_To_INT8:S1|                  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Distance_To_INT8:S1                                                                                                       ; Distance_To_INT8         ; work         ;
+;    |Distance_To_INT8:S2|                  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Distance_To_INT8:S2                                                                                                       ; Distance_To_INT8         ; work         ;
+;    |Distance_To_INT8:S3|                  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Distance_To_INT8:S3                                                                                                       ; Distance_To_INT8         ; work         ;
+;    |NNA_TOP:NN|                           ; 172 (86)            ; 235 (189)                 ; 0                 ; 1          ; 0    ; 0            ; |SYSTEM_TOP|NNA_TOP:NN                                                                                                                ; NNA_TOP                  ; work         ;
+;       |Argmax3:ARGMAX|                    ; 67 (67)             ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|NNA_TOP:NN|Argmax3:ARGMAX                                                                                                 ; Argmax3                  ; work         ;
+;       |MAC:MAC_U|                         ; 0 (0)               ; 32 (32)                   ; 0                 ; 1          ; 0    ; 0            ; |SYSTEM_TOP|NNA_TOP:NN|MAC:MAC_U                                                                                                      ; MAC                      ; work         ;
+;       |MAC_Controller:CTRL|               ; 11 (11)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL                                                                                            ; MAC_Controller           ; work         ;
+;       |Weight_Memory:W_ROM|               ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|NNA_TOP:NN|Weight_Memory:W_ROM                                                                                            ; Weight_Memory            ; work         ;
+;    |Ultrasonic_Accelerator:US|            ; 1430 (154)          ; 179 (179)                 ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US                                                                                                 ; Ultrasonic_Accelerator   ; work         ;
+;       |lpm_divide:Div0|                   ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div0                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_0dm:auto_generated|  ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div0|lpm_divide_0dm:auto_generated                                                   ; lpm_divide_0dm           ; work         ;
+;             |sign_div_unsign_6nh:divider| ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div0|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider                       ; sign_div_unsign_6nh      ; work         ;
+;                |alt_u_div_i2f:divider|    ; 319 (319)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div0|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_i2f:divider ; alt_u_div_i2f            ; work         ;
+;       |lpm_divide:Div1|                   ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div1                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_0dm:auto_generated|  ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div1|lpm_divide_0dm:auto_generated                                                   ; lpm_divide_0dm           ; work         ;
+;             |sign_div_unsign_6nh:divider| ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div1|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider                       ; sign_div_unsign_6nh      ; work         ;
+;                |alt_u_div_i2f:divider|    ; 319 (319)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div1|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_i2f:divider ; alt_u_div_i2f            ; work         ;
+;       |lpm_divide:Div2|                   ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div2                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_0dm:auto_generated|  ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div2|lpm_divide_0dm:auto_generated                                                   ; lpm_divide_0dm           ; work         ;
+;             |sign_div_unsign_6nh:divider| ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div2|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider                       ; sign_div_unsign_6nh      ; work         ;
+;                |alt_u_div_i2f:divider|    ; 319 (319)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div2|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_i2f:divider ; alt_u_div_i2f            ; work         ;
+;       |lpm_divide:Div3|                   ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div3                                                                                 ; lpm_divide               ; work         ;
+;          |lpm_divide_0dm:auto_generated|  ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div3|lpm_divide_0dm:auto_generated                                                   ; lpm_divide_0dm           ; work         ;
+;             |sign_div_unsign_6nh:divider| ; 319 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div3|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider                       ; sign_div_unsign_6nh      ; work         ;
+;                |alt_u_div_i2f:divider|    ; 319 (319)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|lpm_divide:Div3|lpm_divide_0dm:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_i2f:divider ; alt_u_div_i2f            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary ;
++-------------------------------+--------------+
+; Statistic                     ; Number Used  ;
++-------------------------------+--------------+
+; Independent 18x18 plus 36     ; 1            ;
+; Total number of DSP blocks    ; 1            ;
+;                               ;              ;
+; Fixed Point Signed Multiplier ; 1            ;
++-------------------------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------+
+; State Machine - |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL|state                                              ;
++-----------------+-----------------+--------------+----------------+---------------+--------------+------------+
+; Name            ; state.DONE_HOLD ; state.FINISH ; state.NEXT_OUT ; state.NEXT_IN ; state.MAC_OP ; state.IDLE ;
++-----------------+-----------------+--------------+----------------+---------------+--------------+------------+
+; state.IDLE      ; 0               ; 0            ; 0              ; 0             ; 0            ; 0          ;
+; state.MAC_OP    ; 0               ; 0            ; 0              ; 0             ; 1            ; 1          ;
+; state.NEXT_IN   ; 0               ; 0            ; 0              ; 1             ; 0            ; 1          ;
+; state.NEXT_OUT  ; 0               ; 0            ; 1              ; 0             ; 0            ; 1          ;
+; state.FINISH    ; 0               ; 1            ; 0              ; 0             ; 0            ; 1          ;
+; state.DONE_HOLD ; 1               ; 0            ; 0              ; 0             ; 0            ; 1          ;
++-----------------+-----------------+--------------+----------------+---------------+--------------+------------+
+
+
+Encoding Type:  Sequential Encoding
++------------------------------------------------------------------+
+; State Machine - |SYSTEM_TOP|Ultrasonic_Accelerator:US|fsm_state  ;
++------------------+-----------------------+-----------------------+
+; Name             ; fsm_state.state_bit_1 ; fsm_state.state_bit_0 ;
++------------------+-----------------------+-----------------------+
+; fsm_state.IDLE   ; 0                     ; 0                     ;
+; fsm_state.TRIG_S ; 0                     ; 1                     ;
+; fsm_state.WAIT_E ; 1                     ; 0                     ;
+; fsm_state.NEXT   ; 1                     ; 1                     ;
++------------------+-----------------------+-----------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                      ;
++------------------------------------------------+----------------------------------------+
+; Register name                                  ; Reason for Removal                     ;
++------------------------------------------------+----------------------------------------+
+; NNA_TOP:NN|y_reg[1][31]                        ; Stuck at GND due to stuck port data_in ;
+; NNA_TOP:NN|y_reg[2][31]                        ; Stuck at GND due to stuck port data_in ;
+; NNA_TOP:NN|y_reg[0][31]                        ; Stuck at GND due to stuck port data_in ;
+; NNA_TOP:NN|MAC_Controller:CTRL|state~10        ; Lost fanout                            ;
+; NNA_TOP:NN|MAC_Controller:CTRL|state~11        ; Lost fanout                            ;
+; NNA_TOP:NN|MAC_Controller:CTRL|state~12        ; Lost fanout                            ;
+; Ultrasonic_Accelerator:US|distance_cm0[15]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d0[15] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm0[14]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d0[14] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm0[13]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d0[13] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm0[12]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d0[12] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm0[11]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d0[11] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm2[15]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d2[15] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm2[14]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d2[14] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm2[13]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d2[13] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm2[12]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d2[12] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm2[11]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d2[11] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm1[15]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d1[15] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm1[14]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d1[14] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm1[13]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d1[13] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm1[12]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d1[12] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm1[11]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d1[11] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm3[15]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d3[15] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm3[14]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d3[14] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm3[13]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d3[13] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm3[12]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d3[12] ; Stuck at GND due to stuck port data_in ;
+; Ultrasonic_Accelerator:US|distance_cm3[11]     ; Stuck at GND due to stuck port data_in ;
+; Distance_Change_Detector:START_GEN|prev_d3[11] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 46         ;                                        ;
++------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                             ;
++--------------------------------------------+---------------------------+------------------------------------------------+
+; Register name                              ; Reason for Removal        ; Registers Removed due to This Register         ;
++--------------------------------------------+---------------------------+------------------------------------------------+
+; Ultrasonic_Accelerator:US|distance_cm0[15] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d0[15] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm0[14] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d0[14] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm0[13] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d0[13] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm0[12] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d0[12] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm0[11] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d0[11] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm2[15] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d2[15] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm2[14] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d2[14] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm2[13] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d2[13] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm2[12] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d2[12] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm2[11] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d2[11] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm1[15] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d1[15] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm1[14] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d1[14] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm1[13] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d1[13] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm1[12] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d1[12] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm1[11] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d1[11] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm3[15] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d3[15] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm3[14] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d3[14] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm3[13] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d3[13] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm3[12] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d3[12] ;
+;                                            ; due to stuck port data_in ;                                                ;
+; Ultrasonic_Accelerator:US|distance_cm3[11] ; Stuck at GND              ; Distance_Change_Detector:START_GEN|prev_d3[11] ;
+;                                            ; due to stuck port data_in ;                                                ;
++--------------------------------------------+---------------------------+------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 459   ;
+; Number of registers using Synchronous Clear  ; 118   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 371   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 336   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|trig[3]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL|out_idx[0] ;
+; 5:1                ; 22 bits   ; 66 LEs        ; 0 LEs                ; 66 LEs                 ; Yes        ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|echo_cnt[5]     ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SYSTEM_TOP|NNA_TOP:NN|MAC_Controller:CTRL|in_idx[0]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SYSTEM_TOP|NNA_TOP:NN|Weight_Memory:W_ROM|Mux5       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |SYSTEM_TOP|NNA_TOP:NN|Mux20                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|fsm_state       ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |SYSTEM_TOP|NNA_TOP:NN|x_sel[6]                       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |SYSTEM_TOP|Ultrasonic_Accelerator:US|Selector21      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Source assignments for Ultrasonic_Accelerator:US         ;
++--------------------------+------------+------+-----------+
+; Assignment               ; Value      ; From ; To        ;
++--------------------------+------------+------+-----------+
+; STATE_MACHINE_PROCESSING ; SEQUENTIAL ; -    ; fsm_state ;
++--------------------------+------------+------+-----------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Ultrasonic_Accelerator:US ;
++----------------+---------+---------------------------------------------+
+; Parameter Name ; Value   ; Type                                        ;
++----------------+---------+---------------------------------------------+
+; TRIG_PULSE     ; 500     ; Signed Integer                              ;
+; MAX_ECHO       ; 1500000 ; Signed Integer                              ;
++----------------+---------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Distance_Change_Detector:START_GEN ;
++----------------+------------------+---------------------------------------------+
+; Parameter Name ; Value            ; Type                                        ;
++----------------+------------------+---------------------------------------------+
+; THRESHOLD      ; 0000000000010100 ; Unsigned Binary                             ;
++----------------+------------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 22             ; Untyped                                          ;
+; LPM_WIDTHD             ; 12             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_0dm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div2 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 22             ; Untyped                                          ;
+; LPM_WIDTHD             ; 12             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_0dm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div1 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 22             ; Untyped                                          ;
+; LPM_WIDTHD             ; 12             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_0dm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Ultrasonic_Accelerator:US|lpm_divide:Div3 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 22             ; Untyped                                          ;
+; LPM_WIDTHD             ; 12             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_0dm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "NNA_TOP:NN"                                                                                ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; class_id    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; neuron_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 459                         ;
+;     CLR               ; 123                         ;
+;     ENA               ; 88                          ;
+;     ENA CLR           ; 130                         ;
+;     ENA CLR SCLR      ; 118                         ;
+; arriav_lcell_comb     ; 1797                        ;
+;     arith             ; 638                         ;
+;         0 data inputs ; 80                          ;
+;         1 data inputs ; 78                          ;
+;         2 data inputs ; 24                          ;
+;         3 data inputs ; 276                         ;
+;         4 data inputs ; 180                         ;
+;     extend            ; 7                           ;
+;         7 data inputs ; 7                           ;
+;     normal            ; 972                         ;
+;         1 data inputs ; 45                          ;
+;         2 data inputs ; 498                         ;
+;         3 data inputs ; 106                         ;
+;         4 data inputs ; 180                         ;
+;         5 data inputs ; 95                          ;
+;         6 data inputs ; 48                          ;
+;     shared            ; 180                         ;
+;         0 data inputs ; 44                          ;
+;         1 data inputs ; 48                          ;
+;         2 data inputs ; 88                          ;
+; arriav_mac            ; 1                           ;
+; boundary_port         ; 13                          ;
+;                       ;                             ;
+; Max LUT depth         ; 26.10                       ;
+; Average LUT depth     ; 16.63                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Mon Jan 05 14:57:34 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NNA -c NNA_TOP
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mac.v
+    Info (12023): Found entity 1: MAC File: C:/Quartus_Testing/NN_Accel/MAC.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file weight_memory.v
+    Info (12023): Found entity 1: Weight_Memory File: C:/Quartus_Testing/NN_Accel/Weight_Memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bias_memory.v
+    Info (12023): Found entity 1: Bias_Memory File: C:/Quartus_Testing/NN_Accel/Bias_Memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ultrasonic_accelerator.v
+    Info (12023): Found entity 1: Ultrasonic_Accelerator File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file nna_top.v
+    Info (12023): Found entity 1: NNA_TOP File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mac_controller.v
+    Info (12023): Found entity 1: MAC_Controller File: C:/Quartus_Testing/NN_Accel/MAC_Controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file argmax3.v
+    Info (12023): Found entity 1: Argmax3 File: C:/Quartus_Testing/NN_Accel/Argmax3.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file relu.v
+    Info (12023): Found entity 1: relu File: C:/Quartus_Testing/NN_Accel/relu.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file distance_to_int8.v
+    Info (12023): Found entity 1: Distance_To_INT8 File: C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file system_top.v
+    Info (12023): Found entity 1: SYSTEM_TOP File: C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb_nna.v
+    Info (12023): Found entity 1: tb_nna File: C:/Quartus_Testing/NN_Accel/tb_nna.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file distance_change_detector.v
+    Info (12023): Found entity 1: Distance_Change_Detector File: C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v Line: 1
+Info (12127): Elaborating entity "SYSTEM_TOP" for the top level hierarchy
+Info (12128): Elaborating entity "Ultrasonic_Accelerator" for hierarchy "Ultrasonic_Accelerator:US" File: C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v Line: 25
+Warning (10230): Verilog HDL assignment warning at Ultrasonic_Accelerator.v(111): truncated value with size 32 to match size of target (16) File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 111
+Warning (10230): Verilog HDL assignment warning at Ultrasonic_Accelerator.v(112): truncated value with size 32 to match size of target (16) File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 112
+Warning (10230): Verilog HDL assignment warning at Ultrasonic_Accelerator.v(113): truncated value with size 32 to match size of target (16) File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 113
+Warning (10230): Verilog HDL assignment warning at Ultrasonic_Accelerator.v(114): truncated value with size 32 to match size of target (16) File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 114
+Info (12128): Elaborating entity "Distance_To_INT8" for hierarchy "Distance_To_INT8:S0" File: C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v Line: 32
+Warning (10230): Verilog HDL assignment warning at Distance_To_INT8.v(6): truncated value with size 32 to match size of target (16) File: C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v Line: 6
+Warning (10230): Verilog HDL assignment warning at Distance_To_INT8.v(9): truncated value with size 14 to match size of target (8) File: C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v Line: 9
+Info (12128): Elaborating entity "Distance_Change_Detector" for hierarchy "Distance_Change_Detector:START_GEN" File: C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v Line: 52
+Info (12128): Elaborating entity "NNA_TOP" for hierarchy "NNA_TOP:NN" File: C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v Line: 73
+Warning (10240): Verilog HDL Always Construct warning at NNA_TOP.v(95): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 95
+Warning (10240): Verilog HDL Always Construct warning at NNA_TOP.v(112): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 112
+Info (12128): Elaborating entity "Weight_Memory" for hierarchy "NNA_TOP:NN|Weight_Memory:W_ROM" File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 59
+Warning (10270): Verilog HDL Case Statement warning at Weight_Memory.v(10): incomplete case statement has no default case item File: C:/Quartus_Testing/NN_Accel/Weight_Memory.v Line: 10
+Info (12128): Elaborating entity "Bias_Memory" for hierarchy "NNA_TOP:NN|Bias_Memory:B_ROM" File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 64
+Info (12128): Elaborating entity "MAC_Controller" for hierarchy "NNA_TOP:NN|MAC_Controller:CTRL" File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 77
+Info (12128): Elaborating entity "MAC" for hierarchy "NNA_TOP:NN|MAC:MAC_U" File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 90
+Info (12128): Elaborating entity "Argmax3" for hierarchy "NNA_TOP:NN|Argmax3:ARGMAX" File: C:/Quartus_Testing/NN_Accel/NNA_TOP.v Line: 135
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Ultrasonic_Accelerator:US|Div0" File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 111
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Ultrasonic_Accelerator:US|Div2" File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 113
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Ultrasonic_Accelerator:US|Div1" File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 112
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Ultrasonic_Accelerator:US|Div3" File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 114
+Info (12130): Elaborated megafunction instantiation "Ultrasonic_Accelerator:US|lpm_divide:Div0" File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 111
+Info (12133): Instantiated megafunction "Ultrasonic_Accelerator:US|lpm_divide:Div0" with the following parameter: File: C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v Line: 111
+    Info (12134): Parameter "LPM_WIDTHN" = "22"
+    Info (12134): Parameter "LPM_WIDTHD" = "12"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0dm.tdf
+    Info (12023): Found entity 1: lpm_divide_0dm File: C:/Quartus_Testing/NN_Accel/db/lpm_divide_0dm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_6nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_6nh File: C:/Quartus_Testing/NN_Accel/db/sign_div_unsign_6nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i2f.tdf
+    Info (12023): Found entity 1: alt_u_div_i2f File: C:/Quartus_Testing/NN_Accel/db/alt_u_div_i2f.tdf Line: 23
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2169 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 2155 logic cells
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4927 megabytes
+    Info: Processing ended: Mon Jan 05 14:58:00 2026
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:44
+
+

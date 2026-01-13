@@ -1,0 +1,285 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Quartus_Testing/NN_Accel/simulation/modelsim
+vArgmax3
+Z1 !s110 1767599660
+!i10b 1
+!s100 I[2>P0m8da5]Ji=OCkDBY1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IBXR`0j9RUJoLQJCaBMK:J2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1767597193
+8C:/Quartus_Testing/NN_Accel/Argmax3.v
+FC:/Quartus_Testing/NN_Accel/Argmax3.v
+!i122 6
+L0 1 31
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1767599660.000000
+!s107 C:/Quartus_Testing/NN_Accel/Argmax3.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Argmax3.v|
+!i113 1
+Z7 o-vlog01compat -work work
+Z8 !s92 -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel
+Z9 tCvgOpt 0
+n@argmax3
+vBias_Memory
+Z10 !s110 1767599659
+!i10b 1
+!s100 ZW>@1?na:@dSED^3Ra>8g2
+R2
+I7H^G3[j`fKl2h8kO3Ud;d0
+R3
+R0
+w1767598041
+8C:/Quartus_Testing/NN_Accel/Bias_Memory.v
+FC:/Quartus_Testing/NN_Accel/Bias_Memory.v
+!i122 2
+L0 1 15
+R5
+r1
+!s85 0
+31
+Z11 !s108 1767599658.000000
+!s107 C:/Quartus_Testing/NN_Accel/Bias_Memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Bias_Memory.v|
+!i113 1
+R7
+R8
+R9
+n@bias_@memory
+vDistance_Change_Detector
+Z12 !s110 1767599661
+!i10b 1
+!s100 CFBK17PV3m`PX`TW[Bg:c3
+R2
+IKl<Pd:dJNRFhO1B1YZ5Rm2
+R3
+R0
+w1767591905
+8C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v
+FC:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v
+!i122 9
+L0 1 42
+R5
+r1
+!s85 0
+31
+Z13 !s108 1767599661.000000
+!s107 C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v|
+!i113 1
+R7
+R8
+R9
+n@distance_@change_@detector
+vDistance_To_INT8
+R1
+!i10b 1
+!s100 _`S8oBl^8Li8IOB7J]VVh1
+R2
+I6XK;iTMZde1PnB1LM`@iE3
+R3
+R0
+R4
+8C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v
+FC:/Quartus_Testing/NN_Accel/Distance_To_INT8.v
+!i122 7
+L0 1 10
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v|
+!i113 1
+R7
+R8
+R9
+n@distance_@to_@i@n@t8
+vMAC
+Z14 !s110 1767599658
+!i10b 1
+!s100 CTFP=U0;fABUO9DDOjX@]1
+R2
+IR^0Dhm?X]R[NIk9kmz:m^3
+R3
+R0
+w1767573923
+8C:/Quartus_Testing/NN_Accel/MAC.v
+FC:/Quartus_Testing/NN_Accel/MAC.v
+!i122 0
+L0 1 23
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Quartus_Testing/NN_Accel/MAC.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/MAC.v|
+!i113 1
+R7
+R8
+R9
+n@m@a@c
+vMAC_Controller
+R1
+!i10b 1
+!s100 Ta^Vnah34CI5CgiTi`z770
+R2
+IT;W:@13>FY<X=VLj89Vfi3
+R3
+R0
+w1767597192
+8C:/Quartus_Testing/NN_Accel/MAC_Controller.v
+FC:/Quartus_Testing/NN_Accel/MAC_Controller.v
+!i122 5
+L0 1 81
+R5
+r1
+!s85 0
+31
+Z15 !s108 1767599659.000000
+!s107 C:/Quartus_Testing/NN_Accel/MAC_Controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/MAC_Controller.v|
+!i113 1
+R7
+R8
+R9
+n@m@a@c_@controller
+vNNA_TOP
+R10
+!i10b 1
+!s100 WKBVQ?FRM<;Z4Tm1Nee8Y0
+R2
+I<oi<Y2_JC24<cJdUiUlLC0
+R3
+R0
+w1767597191
+8C:/Quartus_Testing/NN_Accel/NNA_TOP.v
+FC:/Quartus_Testing/NN_Accel/NNA_TOP.v
+!i122 4
+L0 1 149
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Quartus_Testing/NN_Accel/NNA_TOP.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/NNA_TOP.v|
+!i113 1
+R7
+R8
+R9
+n@n@n@a_@t@o@p
+vSYSTEM_TOP
+R1
+!i10b 1
+!s100 Y2@44?YaXnXFXTQ5Yio`i3
+R2
+IDNLb_]LO7>]HW<V[;>dWT1
+R3
+R0
+w1767591940
+8C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v
+FC:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v
+!i122 8
+L0 1 75
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v|
+!i113 1
+R7
+R8
+R9
+n@s@y@s@t@e@m_@t@o@p
+vtb_nna
+R12
+!i10b 1
+!s100 DT^Xz=g^ao9Kfja7:j=QS1
+R2
+IaRU[n>f15f>zLjhb_SzBA1
+R3
+R0
+w1767597190
+8C:/Quartus_Testing/NN_Accel/tb_nna.v
+FC:/Quartus_Testing/NN_Accel/tb_nna.v
+!i122 10
+L0 2 121
+R5
+r1
+!s85 0
+31
+R13
+!s107 C:/Quartus_Testing/NN_Accel/tb_nna.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/tb_nna.v|
+!i113 1
+R7
+R8
+R9
+vUltrasonic_Accelerator
+R10
+!i10b 1
+!s100 6Io205cXJD9P[n9^3MF5k1
+R2
+I?zDT50;?=R9DEkc8fi=[K0
+R3
+R0
+w1767595906
+8C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v
+FC:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v
+!i122 3
+L0 1 118
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v|
+!i113 1
+R7
+R8
+R9
+n@ultrasonic_@accelerator
+vWeight_Memory
+R14
+!i10b 1
+!s100 G<DNO8Z>og30ZUZMT@9L32
+R2
+IJ^OOM=h?@8za0Iagf9FE33
+R3
+R0
+w1767598040
+8C:/Quartus_Testing/NN_Accel/Weight_Memory.v
+FC:/Quartus_Testing/NN_Accel/Weight_Memory.v
+!i122 1
+L0 1 34
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Quartus_Testing/NN_Accel/Weight_Memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Quartus_Testing/NN_Accel|C:/Quartus_Testing/NN_Accel/Weight_Memory.v|
+!i113 1
+R7
+R8
+R9
+n@weight_@memory

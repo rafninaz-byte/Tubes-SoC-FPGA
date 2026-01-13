@@ -1,0 +1,93 @@
+module MAC_Controller (
+    input  wire clk,
+    input  wire rst,
+    input  wire start,
+
+    input  wire signed [7:0]  x_in,
+    input  wire signed [7:0]  w_in,
+    input  wire signed [15:0] b_in,
+
+    output reg  [1:0] in_idx,
+    output reg  [1:0] out_idx,
+    output reg  signed [31:0] acc,
+    output reg  done
+);
+
+    // ===============================
+    // FSM State Encoding (Verilog)
+    // ===============================
+    localparam IDLE     = 3'd0;
+    localparam LOAD     = 3'd1;
+    localparam MAC_OP   = 3'd2;
+    localparam NEXT_IN  = 3'd3;
+    localparam NEXT_OUT = 3'd4;
+    localparam FINISH   = 3'd5;
+
+    reg [2:0] state;
+
+    // ===============================
+    // Sequential FSM
+    // ===============================
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            state   <= IDLE;
+            in_idx  <= 0;
+            out_idx <= 0;
+            acc     <= 0;
+            done    <= 0;
+        end else begin
+            case (state)
+
+                IDLE: begin
+                    done <= 0;
+                    if (start) begin
+                        in_idx  <= 0;
+                        out_idx <= 0;
+                        acc     <= 0;
+                        state   <= LOAD;
+                    end
+                end
+
+                LOAD: begin
+                    // Load bias (sign-extended)
+                    acc   <= {{16{b_in[15]}}, b_in};
+                    state <= MAC_OP;
+                end
+
+                MAC_OP: begin
+                    acc   <= acc + (x_in * w_in);
+                    state <= NEXT_IN;
+                end
+
+                NEXT_IN: begin
+                    if (in_idx == 2'd3) begin
+                        state <= NEXT_OUT;
+                    end else begin
+                        in_idx <= in_idx + 1;
+                        state  <= MAC_OP;
+                    end
+                end
+
+                NEXT_OUT: begin
+                    if (out_idx == 2'd2) begin
+                        state <= FINISH;
+                    end else begin
+                        out_idx <= out_idx + 1;
+                        in_idx  <= 0;
+                        acc     <= 0;
+                        state   <= LOAD;
+                    end
+                end
+
+                FINISH: begin
+                    done  <= 1;
+                    state <= IDLE;
+                end
+
+                default: state <= IDLE;
+
+            endcase
+        end
+    end
+
+endmodule

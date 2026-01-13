@@ -1,0 +1,26 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/MAC.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Weight_Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Bias_Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Ultrasonic_Accelerator.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/NNA_TOP.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/MAC_Controller.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Argmax3.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Distance_To_INT8.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/SYSTEM_TOP.v}
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/Distance_Change_Detector.v}
+
+vlog -vlog01compat -work work +incdir+C:/Quartus_Testing/NN_Accel {C:/Quartus_Testing/NN_Accel/tb_nna.v}
+
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_nna
+
+add wave *
+view structure
+view signals
+run -all
